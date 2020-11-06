@@ -1,12 +1,10 @@
 #include <SFML/Graphics.hpp>
 
-#include "gamewindow.h"
+#include "gamingarea.h"
 
 int main()
 {
-    GameWindow window(200, 200, "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+   GamingArea window(GamingArea::TILE_W*GamingArea::NB_TILE_W, GamingArea::TILE_H*GamingArea::NB_TILE_H, "Labyrinthe");
 
     while (window.isOpen())
     {
@@ -18,7 +16,7 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+        window.update();
         window.display();
     }
 
