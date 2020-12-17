@@ -8,6 +8,8 @@ int main()
 
     while (window.isOpen())
     {
+        window.clear();
+        window.initMap();
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -15,8 +17,7 @@ int main()
                 window.close();
         }
 
-        window.clear();
-        window.update();
+        window.drawGame();
         window.display();
     }
 

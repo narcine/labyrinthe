@@ -13,17 +13,17 @@ else
 endif
 
 all : $(OBJ_FOLDER)/src $(EXEC)
-	
+
 $(EXEC) : $(SRC:.cpp=.o)
 	$(ECHO)$(CC) -o bin/$(EXEC) $(OBJ) -lsfml-graphics -lsfml-window -lsfml-system
 	@echo ".. bin/$(EXEC) done."
 
 %.o :  %.cpp $(INCLUDE)
-	$(ECHO)$(CC) -std=c++17 -Iinclude -o $(OBJ_FOLDER)/$@ -c $<
-	
+	$(ECHO)$(CC) -std=c++17 -g -Iinclude -o $(OBJ_FOLDER)/$@ -c $<
+
 $(OBJ_FOLDER)/src :
 	$(ECHO)mkdir -p $(OBJ_FOLDER)/src
-	
+
 clean :
 	$(ECHO)rm -rf $(OBJ_FOLDER)
 	$(ECHO)rm -f bin/$(EXEC)

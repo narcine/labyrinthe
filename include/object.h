@@ -18,27 +18,49 @@ public:
         LEFT_DOWN,
         RIGHT_DOWN
     };
-protected :
+    enum class Type {
+        EMPTY = -1,
+        GROUND,
+        WALL,
+        KNIGHT
+    };
+
+    enum class Layer  {
+        LAYER_0 = 0,
+        LAYER_1
+    };
+
+    Object(Type type, Layer layer);
+
+    void setLayer(Layer layer);
+    Layer getLayer();
     virtual void setOrientation(Orientation ori) = 0;
+
+protected:
+    Layer layer;
+    Type type;
     sf::Texture texture;
 };
 
-class Wall : public Object
+class Wall: public Object
 {
-public :
+public:
     Wall();
-    void setOrientation(Orientation ori) override;
+    Wall(Layer layer);
+    void setOrientation(Orientation ori);
 };
 
-class Ground : public Object
+class Ground: public Object
 {
-public :
+public:
     Ground();
-    void setOrientation(Orientation ori) override;
+    Ground(Layer layer);
+    void setOrientation(Orientation ori);
 };
 
-class Perso : public Object
+class Perso: public Object
 {
+    // A compléter
 };
 
 #endif // OBJECT_H
